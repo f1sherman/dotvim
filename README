@@ -24,3 +24,5 @@ rake make
 
 cd ~/.vim
 git submodule add <repo url> bundle/<repo name>
+
+add any additional/special instructions to this README
