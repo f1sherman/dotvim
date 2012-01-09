@@ -12,4 +12,7 @@
 	url = https://github.com/tpope/vim-endwise.git
 [submodule "bundle/NERDCommenter"]
 	path = bundle/NERDCommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+  url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

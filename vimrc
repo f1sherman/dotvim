@@ -1,4 +1,5 @@
 call pathogen#infect()
+call pathogen#helptags()
 
 :colorscheme ir_black		" make vim easy on the eyes
 
