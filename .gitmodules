@@ -1,0 +1,15 @@
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/endwise"]
+	path = bundle/endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "bundle/NERDCommenter"]
+	path = bundle/NERDCommenter
+	url = https://github.com/scrooloose/nerdcommenter.git

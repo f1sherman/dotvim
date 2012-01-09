@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 :colorscheme ir_black		" make vim easy on the eyes
 
 " bind control-l to hashrocket
