@@ -2,13 +2,16 @@
 | Installation |
 ****************
 
-mkdir ~/.vim
-cd ~/.vim
-
 git clone git@github.com:f1sherman/dotvim.git ~/.vim
+
+cd ~/.vim
 
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
+
+Install submodules:
+git submodule init
+git submodule update
 
 Hook up pathogen:
 ln -s ~/.vim/bundle/pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
@@ -24,5 +27,5 @@ rake make
 
 cd ~/.vim
 git submodule add <repo url> bundle/<repo name>
-
 add any additional/special instructions to this README
+commit changes
