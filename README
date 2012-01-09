@@ -3,5 +3,7 @@ To install:
 mkdir ~/.vim
 cd ~/.vim
 
+git clone git@github.com:f1sherman/dotvim.git ~/.vim
+
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
