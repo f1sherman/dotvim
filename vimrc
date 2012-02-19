@@ -50,3 +50,28 @@ vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 
 " run the current spec
 map <Leader>rs :!bundle exec rspec % --format documentation<CR>
+
+" run the current spec line (stolen from https://github.com/r00k/dotfiles/blob/master/vimrc)
+map <Leader>rl :call RunCurrentLineInTest()<CR>
+
+function! CorrectTestRunner()
+  if match(expand('%'), '\.feature$') != -1
+    return "cucumber"
+  elseif match(expand('%'), '_spec\.rb$') != -1
+    return "rspec"
+  else
+    return "ruby"
+  endif
+endfunction
+
+function! RunCurrentTest()
+  if CorrectTestRunner() == "ruby"
+    exec "!ruby" expand('%:p')
+  else
+    exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p')
+  endif
+endfunction
+
+function! RunCurrentLineInTest()
+  exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p') . ":" . line(".")
+endfunction
