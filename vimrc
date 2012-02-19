@@ -1,9 +1,9 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-:colorscheme ir_black		" make vim easy on the eyes
+:colorscheme ir_black		          " make vim easy on the eyes
 
-let mapleader = ","             " use comma for leader
+let mapleader = ","               " use comma for leader
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
@@ -20,26 +20,26 @@ map <D-F> :Ack<space>
 " command-/ to comment/uncomment lines
 vmap <D-/> ,c<space>
 
-set nocompatible                " choose no compatibility with legacy vi
+set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
 set encoding=utf-8
-set showcmd                     " display incomplete commands
-filetype plugin indent on       " load file type plugins + indentation
-set number                      " show line numbers
+set showcmd                       " display incomplete commands
+filetype plugin indent on         " load file type plugins + indentation
+set number                        " show line numbers
 
 "" Whitespace
-set wrap                        " wrap lines
-set linebreak                   " don't break words
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set softtabstop=2               " backspace 2 spaces at a time
-set expandtab                   " use spaces, not tabs
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set wrap                          " wrap lines
+set linebreak                     " don't break words
+set tabstop=2 shiftwidth=2        " a tab is two spaces
+set softtabstop=2                 " backspace 2 spaces at a time
+set expandtab                     " use spaces, not tabs
+set backspace=indent,eol,start    " backspace through everything in insert mode
 
 "" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
+set hlsearch                      " highlight matches
+set incsearch                     " incremental searching
+set ignorecase                    " searches are case insensitive...
+set smartcase                     " ... unless they contain at least one capital letter
 
 
 " git blame for selected lines (stolen from https://github.com/r00k/dotfiles/blob/master/vimrc)

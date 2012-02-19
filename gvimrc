@@ -7,6 +7,8 @@ endif
 if has("gui_macvim")
   macmenu &File.Open\ Tab\.\.\. key=<nop>
   map <D-T> :CommandT<CR>
+  " refresh the CommandT cache
+  map <Leader>r :CommandTFlush<CR>
 endif
 
 let g:CommandTMaxHeight=15
