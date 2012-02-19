@@ -16,7 +16,7 @@ map <C-l> <C-w>l
 map <D-F> :Ack<space>
 
 " command-/ to comment/uncomment lines
-map <D-/> \c<space>
+vmap <D-/> \c<space>
 
 set nocompatible                " choose no compatibility with legacy vi
 syntax enable
@@ -38,3 +38,8 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+
+let mapleader = ","             " use comma for leader
+
+" git blame for selected lines (stolen from https://github.com/r00k/dotfiles/blob/master/vimrc)
+vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
