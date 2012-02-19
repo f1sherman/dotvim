@@ -41,6 +41,12 @@ set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 
+" Don't clutter my dirs up with swp and tmp files
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
 
 " git blame for selected lines (stolen from https://github.com/r00k/dotfiles/blob/master/vimrc)
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" run the current spec
+map <Leader>rs :!bundle exec rspec % --format documentation<CR>
