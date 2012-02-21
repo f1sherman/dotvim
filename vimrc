@@ -18,7 +18,7 @@ map <C-l> <C-w>l
 map <D-F> :Ack<space>
 
 " command-/ to comment/uncomment lines
-vmap <D-/> ,c<space>
+map <D-/> ,c<space>
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
