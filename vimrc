@@ -17,6 +17,12 @@ map <C-l> <C-w>l
 " command-shift-f to bring up Ack.vim
 map <D-F> :Ack<space>
 
+" command-shift-m to search for a method definition
+map <D-M> :Ack<space>def\\s\(self\\.\)?
+
+" find a method in the current file
+map <Leader>m /def\s\(self\.\)\?
+
 " command-/ to comment/uncomment lines
 map <D-/> ,c<space>
 
