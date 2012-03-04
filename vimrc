@@ -3,6 +3,8 @@ call pathogen#helptags()
 
 :colorscheme ir_black		          " make vim easy on the eyes
 
+:runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
+
 let mapleader = ","               " use comma for leader
 
 " bind control-l to hashrocket
