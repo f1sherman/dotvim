@@ -25,6 +25,9 @@ map <D-M> :Ack<space>def\\s\(self\\.\)?
 " find a method in the current file
 map <Leader>m /def\s\(self\.\)\?
 
+" open tag in new window
+map <Leader>g :stag<CR>
+
 " command-/ to comment/uncomment lines
 map <D-/> ,c<space>
 
