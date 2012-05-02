@@ -56,6 +56,9 @@ set smartcase                     " ... unless they contain at least one capital
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 
+" Make underscore (_) a word delimiter
+set iskeyword-=_
+
 " git blame for selected lines (stolen from https://github.com/r00k/dotfiles/blob/master/vimrc)
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
