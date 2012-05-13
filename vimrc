@@ -28,6 +28,9 @@ map <Leader>m /def\s\(self\.\)\?
 " open tag in new window
 map <Leader>g :stag<CR>
 
+" rename the current file
+map <leader>n :call RenameFile()<cr>
+
 " command-/ to comment/uncomment lines
 map <D-/> ,c<space>
 
@@ -85,4 +88,14 @@ endfunction
 
 function! RunCurrentLineInTest()
   exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p') . ":" . line(".")
+endfunction
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
