@@ -62,7 +62,7 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
 set textwidth=79                  " this, in addition to formatoptions=q, allows me 
                                   " to type gq to format comments
-set colorcolumn=85                " make it easier to see when my lines are getting 
+set colorcolumn=100               " make it easier to see when my lines are getting 
                                   " too long
 
 "" Searching
