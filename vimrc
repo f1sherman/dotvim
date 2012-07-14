@@ -22,7 +22,7 @@ map <D-F> :Ack<space>
 " command-shift-m to search for a ruby method definition
 map <D-M> :Ack<space>def\\s\(self\\.\)?
 
-" search for a ruby method in the current file
+" search for a ruby method definition in the current file
 map <Leader>m /def\s\(self\.\)\?
 
 " open tag in new window
@@ -37,10 +37,6 @@ nnoremap <leader>v V`]
 
 " command-/ to comment/uncomment lines
 map <D-/> ,c<space>
-
-" use tab to switch between bracket pairs
-nnoremap <tab> %
-vnoremap <tab> %
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
