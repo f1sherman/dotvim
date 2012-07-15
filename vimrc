@@ -7,8 +7,21 @@ call pathogen#helptags()
 
 let mapleader = ","               " use comma for leader
 
+" auto reload .vimrc when it's changed
+au BufWritePost .vimrc so ~/.vimrc
+
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
+
+" use ; instead of : (save a bunch of keystrokes)
+nnoremap ; :
+
+" use jk instead of esc
+inoremap jk <Esc>
+
+" put search result at center of screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
 
 " easier moving between windows
 map <C-h> <C-w>h
