@@ -16,6 +16,9 @@ imap <C-l> <Space>=><Space>
 " use ; instead of : (save a bunch of keystrokes)
 nnoremap ; :
 
+" open tag in horizontal split
+nnoremap <C-]> <C-w><C-]>
+
 " use jk instead of esc
 inoremap jk <Esc>
 
