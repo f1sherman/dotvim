@@ -95,12 +95,20 @@ set iskeyword-=_
 map <Leader>p :RainbowParenthesesToggle<CR>
 
 function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    exec ':CommandTFlush'
+  let s:old_name = expand('%')
+  let s:new_name = input('New file name: ', expand('%'), 'file')
+  if s:new_name != '' && s:new_name != s:old_name
+    try " first try to move with git so history is preserved properly
+      exec ':Gmove ' . s:new_name
+    catch
+      exec ':saveas ' . s:new_name
+      exec ':silent !rm ' . s:old_name
+    finally
+      exec ':CommandTFlush'
+    endtry
     redraw!
   endif
+
+  unlet s:old_name
+  unlet s:new_name
 endfunction
