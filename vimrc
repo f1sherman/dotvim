@@ -100,6 +100,7 @@ function! RenameFile()
   if new_name != '' && new_name != old_name
     exec ':saveas ' . new_name
     exec ':silent !rm ' . old_name
+    exec ':CommandTFlush'
     redraw!
   endif
 endfunction
