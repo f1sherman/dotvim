@@ -92,6 +92,12 @@ function! RenameFile()
   let s:old_name = expand('%')
   let s:new_name = input('New file name: ', expand('%'), 'file')
   if s:new_name != '' && s:new_name != s:old_name
+    " create the directory if it doesn't already exist
+    let s:dir = fnamemodify(s:new_name, ":p:h")
+    if !isdirectory(s:dir)
+      call mkdir(s:dir, "p")
+    endif
+
     try " first try to move with git so history is preserved properly
       exec ':Gmove ' . s:new_name
     catch
