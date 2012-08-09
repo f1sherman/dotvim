@@ -48,6 +48,9 @@ nnoremap <leader>v V`]
 " command-/ to comment/uncomment lines
 map <D-/> ,c<space>
 
+" don't show generated files in listings (and Command-T)
+set wildignore+=test/reports/**,tmp,.sass-cache,.DS_Store
+
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
 set encoding=utf-8
@@ -57,7 +60,6 @@ set number                        " show line numbers
 set scrolloff=3                   " always show 3 lines above and below the cursor
 set cursorline                    " highlight the line the cursor is on
 set ruler                         " show row/column # at bottom right
-set wildignore+=test/reports/**   " don't show test report files in listings (and Command-T)
 
 "" Whitespace
 set wrap                          " wrap lines
