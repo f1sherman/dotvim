@@ -91,6 +91,9 @@ set iskeyword-=_
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
+" keep tagbar open at all times
+let g:tagbar_autoclose=false
+
 function! RenameFile()
   let s:old_name = expand('%')
   let s:new_name = input('New file name: ', expand('%'), 'file')
