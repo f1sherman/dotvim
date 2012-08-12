@@ -91,8 +91,8 @@ set iskeyword-=_
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
-" keep tagbar open at all times
-let g:tagbar_autoclose=false
+" open tagbar when opening a supported file
+autocmd FileType * nested :call tagbar#autoopen(0)
 
 function! RenameFile()
   let s:old_name = expand('%')
