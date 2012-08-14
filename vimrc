@@ -91,8 +91,10 @@ set iskeyword-=_
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
-" open tagbar when opening a supported file
-autocmd FileType * nested :call tagbar#autoopen(0)
+" open tagbar when opening a supported file unless we're in diff mode
+if !&diff
+  autocmd FileType * nested :call tagbar#autoopen(0)
+end
 
 function! RenameFile()
   let s:old_name = expand('%')
