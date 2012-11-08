@@ -107,7 +107,7 @@ function! RenameFile()
     endif
 
     try " first try to move with git so history is preserved properly
-      exec ':Gmove ' . s:new_name
+      exec 'silent! :Gmove ' . s:new_name
     catch
       exec ':saveas ' . s:new_name
       exec ':silent !rm ' . s:old_name
