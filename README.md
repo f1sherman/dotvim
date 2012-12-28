@@ -8,22 +8,22 @@ cd ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
 
-Create a directory at ~/.vimtmp for temp files
+# Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
 
-Install submodules:
+# Install submodules:
 git submodule init
 git submodule update
 
-Hook up pathogen:
+# Hook up pathogen:
 ln -s ~/.vim/bundle/pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 
-Install command-t:
+# Install command-t:
 cd ~/.vim/bundle/command-t/
 rvm use system
 rake make
 
-Install ctags:
+# Install ctags:
 brew install ctags
 ```
 
@@ -32,7 +32,7 @@ Update
 ```shell
 git pull origin master
 
-If any new plugins were added:
+# If any new plugins were added:
 git submodule init
 git submodule update
 ```
