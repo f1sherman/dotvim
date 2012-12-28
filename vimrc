@@ -26,6 +26,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" move up/down on displayed lines rather than actual lines
+noremap k gk
+noremap j gj
+
 " command-shift-f to bring up Ack.vim
 map <D-F> :Ack<space>
 
