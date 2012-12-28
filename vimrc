@@ -95,6 +95,16 @@ set iskeyword-=_
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
+" --- Command-T options ---
+" Shift-Command-t to open command-T
+map <D-T> :CommandT<CR>
+"Flush the command-t buffer with ,r
+map <Leader>r :CommandTFlush<CR>
+let g:CommandTMaxHeight=15          " set command-t window max height
+let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
+let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
+let g:CommandTMaxFiles=100000       " increase file limit for command-t
+
 function! RenameFile()
   let s:old_name = expand('%')
   let s:new_name = input('New file name: ', expand('%'), 'file')
