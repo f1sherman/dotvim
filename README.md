@@ -1,7 +1,6 @@
-****************
-| Installation |
-****************
-
+Installation
+============
+```shell
 git clone git@github.com:f1sherman/dotvim.git ~/.vim
 
 cd ~/.vim
@@ -26,22 +25,23 @@ rake make
 
 Install ctags:
 brew install ctags
+```
 
-**********
-| Update |
-**********
-
+Update
+======
+```shell
 git pull origin master
 
 If any new plugins were added:
 git submodule init
 git submodule update
+```
 
-***********************
-| To add more plugins |
-***********************
-
+To add more plugins
+===================
+```shell
 cd ~/.vim
 git submodule add <repo url> bundle/<repo name>
 add any additional/special instructions to this README
 commit changes
+```
