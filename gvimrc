@@ -15,3 +15,5 @@ let g:CommandTMaxHeight=15
 let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTScanDotDirectories=1
 let g:CommandTMaxFiles=100000
+
+set vb  " Disable annoying error bell/beep sounds
