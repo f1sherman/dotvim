@@ -1,7 +1,8 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-:colorscheme ir_black		          " make vim easy on the eyes
+set background=dark
+colorscheme solarized          " make vim easy on the eyes
 
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
@@ -30,11 +31,11 @@ map <C-l> <C-w>l
 noremap k gk
 noremap j gj
 
-" command-shift-f to bring up Ack.vim
-map <D-F> :Ack<space>
+" ctrl-f to bring up Ack.vim
+map <C-F> :Ack<space>
 
-" command-shift-m to search for a ruby method definition
-map <D-M> :Ack<space>def\\s\(self\\.\)?
+" ctrl-m to search for a ruby method definition
+map <C-M> :Ack<space>def\\s\(self\\.\)?
 
 " search for a ruby method definition in the current file
 map <Leader>m /def\s\(self\.\)\?
@@ -48,9 +49,6 @@ map <leader>n :call RenameFile()<cr>
 " select text that was just pasted (useful for performing commands such as
 " formatting)
 nnoremap <leader>v V`]
-
-" command-/ to comment/uncomment lines
-map <D-/> ,c<space>
 
 " don't show generated files in listings (and Command-T)
 set wildignore+=test/reports/**,tmp,.sass-cache,.DS_Store
@@ -95,15 +93,26 @@ set iskeyword-=_
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
+" When swapfile is found skip the message and edit the file
+set shortmess+=A
+
 " --- Command-T options ---
-" Shift-Command-t to open command-T
-map <D-T> :CommandT<CR>
+" Ctl-t to open command-T
+map <C-T> :CommandT<CR>
 "Flush the command-t buffer with ,r
-map <Leader>r :CommandTFlush<CR>
+map <Leader>f :CommandTFlush<CR>
 let g:CommandTMaxHeight=15          " set command-t window max height
 let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
 let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
 let g:CommandTMaxFiles=100000       " increase file limit for command-t
+
+" --- Screen options ---
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellInitialFocus = 'shell'
+"let g:ScreenShellQuitOnVimExit = 0
+map <F5> :ScreenShellVertical<CR>
+map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
 
 function! RenameFile()
   let s:old_name = expand('%')
