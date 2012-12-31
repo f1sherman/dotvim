@@ -8,8 +8,12 @@ colorscheme solarized          " make vim easy on the eyes
 
 let mapleader = ","               " use comma for leader
 
-" auto reload .vimrc when it's changed
-au BufWritePost .vimrc so ~/.vimrc
+" auto reload .vimrc when it's changed (augroup is necessary to keep from
+" slowing vim down as the file is changed)
+augroup ReloadVimrc
+  au!
+  au BufWritePost .vimrc so ~/.vimrc
+augroup END
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
