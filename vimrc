@@ -113,7 +113,11 @@ let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'shell'
 "let g:ScreenShellQuitOnVimExit = 0
 map <F5> :ScreenShellVertical<CR>
-map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>r :w<CR> :call ScreenShellSend('rspec ' . GetRspec())<CR>
+
+function! GetRspec()
+  return matchstr(@%, 'spec/.*') . ":" . line(".")
+endfunction
 
 function! RenameFile()
   let s:old_name = expand('%')
