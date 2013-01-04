@@ -116,7 +116,7 @@ let g:CommandTMaxFiles=100000       " increase file limit for command-t
 let g:ScreenImpl = 'Tmux'
 let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'shell'
-"let g:ScreenShellQuitOnVimExit = 0
+let g:ScreenShellQuitOnVimExit = 0
 map <F5> :ScreenShellVertical<CR>
 map <Leader>r :w<CR> :call ScreenShellSend('rspec ' . matchstr(@%, 'spec/.*') . ':' . line("."))<CR>
 map <Leader>R :w<CR> :call ScreenShellSend('rspec ' . matchstr(@%, 'spec/.*'))<CR>
