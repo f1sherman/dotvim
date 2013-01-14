@@ -68,6 +68,7 @@ set cursorline                    " highlight the line the cursor is on
 set ruler                         " show row/column # at bottom right
 set lazyredraw                    " fix scroll drift when holding down a move key
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
+set wildmode=longest,list         " shell-style filename completion
 
 "" Whitespace
 set wrap                          " wrap lines
@@ -77,7 +78,7 @@ set softtabstop=2                 " backspace 2 spaces at a time
 set expandtab                     " use spaces, not tabs
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
-set textwidth=79                  " this, in addition to formatoptions=q, allows me 
+set textwidth=120                 " this, in addition to formatoptions=q, allows me 
                                   " to type gq to format comments
 set colorcolumn=150               " make it easier to see when my lines are getting 
                                   " too long
