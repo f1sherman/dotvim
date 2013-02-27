@@ -17,6 +17,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
 Bundle 'pangloss/vim-javascript'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'Valloric/YouCompleteMe'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
