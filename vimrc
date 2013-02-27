@@ -15,6 +15,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
+Bundle 'pangloss/vim-javascript'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
