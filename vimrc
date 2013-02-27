@@ -1,5 +1,20 @@
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+Bundle 'ervandew/screen'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'wincent/Command-T'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'kana/vim-textobj-user'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes

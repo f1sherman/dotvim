@@ -11,12 +11,9 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 # Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
 
-# Install submodules:
-git submodule init
-git submodule update
-
-# Hook up pathogen:
-ln -s ~/.vim/bundle/pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
+# Install vundle:
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +BundleInstall +qall
 
 # Install command-t:
 cd ~/.vim/bundle/command-t/
@@ -33,15 +30,14 @@ Update
 git pull origin master
 
 # If any new plugins were added:
-git submodule init
-git submodule update
+vim +BundleInstall +qall
 ```
 
 To add more plugins
 ===================
 ```shell
-cd ~/.vim
-git submodule add <repo url> bundle/<repo name>
+# Add 'Bundle' line to vimrc as specified here: https://github.com/gmarik/vundle
+vim +BundleInstall +qall
 add any additional/special instructions to this README
 commit changes
 ```
