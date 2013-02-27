@@ -22,6 +22,8 @@ rake make
 
 # Install ctags:
 brew install ctags
+
+# Install YouCompleteMe (autocompletion) - see 'super quick installation' notes here: https://github.com/Valloric/YouCompleteMe
 ```
 
 Update
