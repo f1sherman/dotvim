@@ -59,6 +59,9 @@ vmap <F2> :w !pbcopy<CR><CR>
 " ctrl-f to bring up Ack.vim
 map <C-F> :Ack<space>
 
+" Use ag (silver searcher) instead of ack for speed
+let g:ackprg = 'ag --nogroup --nocolor --column --skip-vcs-ignores'
+
 " ctrl-m to search for a ruby method definition
 map <C-M> :Ack<space>def\\s\(self\\.\)?
 
