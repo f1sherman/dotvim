@@ -18,6 +18,9 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'pangloss/vim-javascript'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-dispatch'
+" For newest rspec compiler
+Bundle 'vim-ruby/vim-ruby' 
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
