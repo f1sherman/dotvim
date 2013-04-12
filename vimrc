@@ -59,14 +59,14 @@ noremap j gj
 " copy current selection to OS X clipboard
 vmap <F2> :w !pbcopy<CR><CR>
 
-" ctrl-shift-f to bring up Ack.vim
+" ctrl-f to bring up Ack.vim
 map <C-F> :Ack<space>
 
 " Use ag (silver searcher) instead of ack for speed
 let g:ackprg = 'ag --nogroup --nocolor --column --skip-vcs-ignores'
 
-" ctrl-shift-r to search for a ruby method definition
-map <C-R> :Ack<space>def\\s\(self\\.\)?
+" ctrl-g to search for a ruby method definition
+map <C-G> :Ack<space>def\\s\(self\\.\)?
 
 " search for a ruby method definition in the current file
 map <Leader>m /def\s\(self\.\)\?
