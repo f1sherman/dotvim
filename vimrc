@@ -3,7 +3,6 @@ call vundle#rc()
 
 " Bundles
 Bundle 'gmarik/vundle'
-Bundle 'ervandew/screen'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'mileszs/ack.vim'
@@ -131,19 +130,13 @@ set shortmess+=A
 " --- Command-T options ---
 " Ctl-t to open command-T
 map <C-T> :CommandT<CR>
-"Flush the command-t buffer with ,r
+"Flush the command-t buffer with ,f
 map <Leader>f :CommandTFlush<CR>
 let g:CommandTMaxHeight=15          " set command-t window max height
 let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
 let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
 let g:CommandTMaxFiles=100000       " increase file limit for command-t
 
-" --- Screen options ---
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellTmuxInitArgs = '-2'
-let g:ScreenShellInitialFocus = 'shell'
-let g:ScreenShellQuitOnVimExit = 0
-map <F5> :ScreenShellVertical<CR>
 map <Leader>r :w<CR> :execute('Dispatch bin/spring rspec ' . expand("%") . ':' . line("."))<CR>
 map <Leader>R :w<CR> :execute('Dispatch bin/spring rspec ' . expand("%"))<CR>
 
