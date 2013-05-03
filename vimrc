@@ -33,6 +33,9 @@ augroup ReloadVimrc
   au BufWritePost .vimrc so ~/.vimrc
 augroup END
 
+" Spellcheck and wrap git commit messages at recommended 72 chars
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
