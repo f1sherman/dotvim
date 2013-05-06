@@ -140,8 +140,8 @@ let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
 let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
 let g:CommandTMaxFiles=100000       " increase file limit for command-t
 
-map <Leader>r :w<CR> :execute('Dispatch bin/spring rspec ' . expand("%") . ':' . line("."))<CR>
-map <Leader>R :w<CR> :execute('Dispatch bin/spring rspec ' . expand("%"))<CR>
+map <Leader>r :w<CR> :call RunSpec(0)<CR>
+map <Leader>R :w<CR> :call RunSpec(1)<CR>
 
 function! RenameFile()
   let s:old_name = expand('%')
@@ -166,4 +166,23 @@ function! RenameFile()
 
   unlet s:old_name
   unlet s:new_name
+endfunction
+
+function! RunSpec(whole_file)
+  let s:source_path = expand('%')
+
+  if empty(matchstr(s:source_path, '_spec.rb$'))
+    let s:spec_path = "spec/" . substitute(s:source_path, '^app/\|\.rb$', "", "g") . "_spec.rb"
+  else
+    if a:whole_file
+      let s:spec_path = s:source_path
+    else
+      let s:spec_path = s:source_path . ":" . line(".")
+    endif
+  endif
+
+  execute('Dispatch bin/spring rspec ' . s:spec_path)
+
+  unlet s:source_path
+  unlet s:spec_path
 endfunction
