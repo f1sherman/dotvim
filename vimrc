@@ -153,11 +153,6 @@ function! RenameFile()
       call mkdir(s:dir, "p")
     endif
 
-    " remove the swapfile to avoid vim errors when moving
-    exec ":sw"
-    let s:swap_file_name = v:statusmsg
-    exec ':silent !rm ' . s:swap_file_name
-
     try " first try to move with git so history is preserved properly
       exec ':Gmove ' . s:new_name
     catch
