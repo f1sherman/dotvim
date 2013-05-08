@@ -173,7 +173,12 @@ function! RunSpec(whole_file)
   let s:source_path = expand('%')
 
   if empty(matchstr(s:source_path, '_spec.rb$'))
-    let s:spec_path = "spec/" . substitute(s:source_path, '^app/\|\.rb$', "", "g") . "_spec.rb"
+    let s:spec_path = substitute(s:source_path, '\.rb$', '', '')
+    let s:spec_path = s:spec_path . '_spec.rb'
+    let s:spec_path = substitute(s:spec_path, 'app/', 'spec/', '')
+    if empty(matchstr(s:spec_path, 'spec/'))
+      let s:spec_path = "spec/" . s:spec_path
+    endif
   else
     if a:whole_file
       let s:spec_path = s:source_path
