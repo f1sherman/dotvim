@@ -152,6 +152,7 @@ function! RenameFile()
     if !isdirectory(s:dir)
       call mkdir(s:dir, "p")
     endif
+    unlet s:dir
 
     try " first try to move with git so history is preserved properly
       exec ':Gmove ' . s:new_name
