@@ -36,6 +36,9 @@ augroup END
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" fix "crontab: temp file must be edited in place" error
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
