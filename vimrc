@@ -162,6 +162,10 @@ function! RenameFile()
       exec ':Gmove ' . s:new_name
     catch E768
       " swap file exists, ignore
+    catch E492
+      " file is not in git, move it outside of git
+      exec ':saveas ' . s:new_name
+      exec ':silent !rm ' . s:old_name
     catch /fugitive: fatal: not under version control/
       " file is not in git, move it outside of git
       exec ':saveas ' . s:new_name
