@@ -161,7 +161,8 @@ function! RenameFile()
     try " first try to move with git so history is preserved properly
       exec ':Gmove ' . s:new_name
     catch E768
-      " swap file exists, ignore
+      " swap file exists, ignore and edit the moved file
+      exec ':edit ' . s:new_name
     catch E492
       " file is not in git, move it outside of git
       exec ':saveas ' . s:new_name
