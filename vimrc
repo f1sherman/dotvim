@@ -18,6 +18,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-dispatch'
+Bundle 'christoomey/vim-tmux-navigator'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
