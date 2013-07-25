@@ -37,6 +37,9 @@ augroup END
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" Remove trailing whitespace on save
+autocmd BufWritePre *.rb,*.js,*.jst,*.haml,*.html,*.css,*.sass :call <SID>StripTrailingWhitespaces()
+
 " fix "crontab: temp file must be edited in place" error
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
@@ -145,8 +148,8 @@ let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
 let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
 let g:CommandTMaxFiles=100000       " increase file limit for command-t
 
-map <Leader>r :w<CR> :call RunSpec(0)<CR>
-map <Leader>R :w<CR> :call RunSpec(1)<CR>
+map <Leader>r :w<CR> :call <SID>RunSpec(0)<CR>
+map <Leader>R :w<CR> :call <SID>RunSpec(1)<CR>
 
 function! RenameFile()
   let s:old_name = expand('%')
@@ -182,7 +185,7 @@ function! RenameFile()
   unlet s:new_name
 endfunction
 
-function! RunSpec(whole_file)
+function! <SID>RunSpec(whole_file)
   let s:source_path = expand('%')
 
   if empty(matchstr(s:source_path, '_spec.rb$'))
@@ -204,4 +207,11 @@ function! RunSpec(whole_file)
 
   unlet s:source_path
   unlet s:spec_path
+endfunction
+
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfunction
