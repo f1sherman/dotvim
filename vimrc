@@ -40,6 +40,9 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " Remove trailing whitespace on save
 autocmd BufWritePre *.rb,*.js,*.jst,*.haml,*.html,*.css,*.sass :call <SID>StripTrailingWhitespaces()
 
+" Resize panes when vim is resized
+autocmd VimResized * :wincmd =
+
 " fix "crontab: temp file must be edited in place" error
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
