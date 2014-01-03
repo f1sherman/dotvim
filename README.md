@@ -17,7 +17,6 @@ vim +BundleInstall +qall
 
 # Install command-t:
 cd ~/.vim/bundle/command-t/
-rvm use system
 rake make
 
 # Install ctags:
