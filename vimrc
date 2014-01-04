@@ -206,7 +206,7 @@ function! <SID>RunSpec(whole_file)
     endif
   endif
 
-  execute('Dispatch vagrant exec bin/rspec ' . s:spec_path)
+  execute('Dispatch cd $VAGRANT_DIR && vagrant exec bin/rspec ' . s:spec_path)
 
   unlet s:source_path
   unlet s:spec_path
