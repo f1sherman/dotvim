@@ -92,7 +92,7 @@ map <leader>n :call RenameFile()<cr>
 nnoremap <leader>v V`]
 
 " don't show generated files in listings (and Command-T)
-set wildignore+=test/reports/**,tmp,.sass-cache,.DS_Store
+set wildignore+=test/reports/**,spec/reports/**,tmp,.sass-cache,.DS_Store
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
