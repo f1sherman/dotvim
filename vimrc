@@ -19,6 +19,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'kien/ctrlp.vim'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
@@ -91,8 +92,12 @@ map <leader>n :call RenameFile()<cr>
 " formatting)
 nnoremap <leader>v V`]
 
-" don't show generated files in listings (and Command-T)
-set wildignore+=test/reports/**,spec/reports/**,tmp,.sass-cache,.DS_Store
+" don't show generated files in listings
+set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|(spec|test)\/reports)$',
+  \ }
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
