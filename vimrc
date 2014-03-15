@@ -146,6 +146,11 @@ map <Leader>p :RainbowParenthesesToggle<CR>
 " When swapfile is found skip the message and edit the file
 set shortmess+=A
 
+" Avoid hanging when saving some files
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["eruby", "haml", "sass", "scss"] }
+
 " --- Command-T options ---
 " Ctl-t to open command-T
 map <C-T> :CommandT<CR>
