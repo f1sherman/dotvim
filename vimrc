@@ -20,6 +20,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-haml'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
