@@ -11,16 +11,14 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 # Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
 
-# Install vundle:
+# Clone vundle:
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+# Install vundle (this may give an error about not finding the solarized theme - ignore it as this will install it)
 vim +BundleInstall +qall
 
 # Install command-t:
 cd ~/.vim/bundle/command-t/
 rake make
-
-# Install ctags:
-brew install ctags
 
 # Install YouCompleteMe (autocompletion) - see 'super quick installation' notes here: https://github.com/Valloric/YouCompleteMe
 ```
