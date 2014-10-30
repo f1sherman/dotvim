@@ -32,8 +32,8 @@ Update
 ```shell
 git pull origin master
 
-# If any new plugins were added:
-vim +BundleInstall +qall
+# If any new plugins were added (can use PluginInstall! to also update existing plugins):
+vim +PluginInstall
 ```
 
 To add more plugins
