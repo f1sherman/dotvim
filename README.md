@@ -20,6 +20,10 @@ vim +BundleInstall +qall
 cd ~/.vim/bundle/command-t/
 rake make
 
+# Install YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh
+
 # Install YouCompleteMe (autocompletion) - see 'super quick installation' notes here: https://github.com/Valloric/YouCompleteMe
 ```
 
