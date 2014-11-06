@@ -112,6 +112,7 @@ set ruler                         " show row/column # at bottom right
 set lazyredraw                    " fix scroll drift when holding down a move key
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
 set wildmode=longest,list         " shell-style filename completion
+set splitbelow                    " Open new splits below instead of above
 
 "" Whitespace
 set wrap                          " wrap lines
