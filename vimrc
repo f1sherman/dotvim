@@ -41,6 +41,11 @@ autocmd VimResized * :wincmd =
 " fix "crontab: temp file must be edited in place" error
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
+" Highlight debugger statements
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.rb syn match error contained "\<debugger\>"
+au BufEnter *.js syn match error contained "\<debugger\>"
+
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
