@@ -146,6 +146,9 @@ map <Leader>p :RainbowParenthesesToggle<CR>
 " When swapfile is found skip the message and edit the file
 set shortmess+=A
 
+" Open folds by default
+set nofoldenable
+
 " Avoid hanging when saving some files
 let g:syntastic_mode_map = {
     \ "mode": "active",
