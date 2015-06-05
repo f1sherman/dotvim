@@ -21,6 +21,8 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-haml'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'terryma/vim-expand-region'
 
 set background=dark
 colorscheme solarized          " make vim easy on the eyes
@@ -92,6 +94,10 @@ map <leader>n :call RenameFile()<cr>
 " select text that was just pasted (useful for performing commands such as
 " formatting)
 nnoremap <leader>v V`]
+
+" use v and C-v to expand/shrink selection
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " don't show generated files in listings
 set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
