@@ -31,13 +31,6 @@ colorscheme solarized          " make vim easy on the eyes
 
 let mapleader = ","               " use comma for leader
 
-" auto reload .vimrc when it's changed (augroup is necessary to keep from
-" slowing vim down as the file is changed)
-augroup ReloadVimrc
-  au!
-  au BufWritePost .vimrc so ~/.vimrc
-augroup END
-
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
@@ -49,6 +42,11 @@ autocmd VimResized * :wincmd =
 
 " fix "crontab: temp file must be edited in place" error
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
+" Highlight debugger statements
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.rb syn match error contained "\<debugger\>"
+au BufEnter *.js syn match error contained "\<debugger\>"
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
@@ -154,6 +152,9 @@ map <Leader>p :RainbowParenthesesToggle<CR>
 " When swapfile is found skip the message and edit the file
 set shortmess+=A
 
+" Open folds by default
+set nofoldenable
+
 " Avoid hanging when saving some files
 let g:syntastic_mode_map = {
     \ "mode": "active",
@@ -236,3 +237,29 @@ function! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfunction
+
+" for tmux to automatically set paste and nopaste mode at the time pasting (as
+" happens in VIM UI)
+" Found here: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+ 
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+ 
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+ 
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+ 
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+ 
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+ 
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
