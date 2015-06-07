@@ -1,8 +1,8 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Bundles
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'mileszs/ack.vim'
@@ -21,6 +21,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-expand-region'
+
+call vundle#end() 
 
 set background=dark
 

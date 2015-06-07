@@ -12,8 +12,8 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 mkdir ~/.vimtmp
 
 # Clone vundle:
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-# Install vundle (this may give an error about not finding the solarized theme - ignore it as this will install it)
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install vundle
 vim +BundleInstall +qall
 ```
 
