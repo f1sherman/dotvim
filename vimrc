@@ -71,9 +71,6 @@ map <C-l> <C-w>l
 noremap k gk
 noremap j gj
 
-" copy current selection to OS X clipboard
-vmap <F2> :w !pbcopy<CR><CR>
-
 " ctrl-f to bring up Ack.vim
 map <C-F> :Ack<space>
 
