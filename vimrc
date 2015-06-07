@@ -6,7 +6,6 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
@@ -16,7 +15,6 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
 Bundle 'pangloss/vim-javascript'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
@@ -160,16 +158,6 @@ let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["eruby", "haml", "sass", "scss"] }
 
-" --- Command-T options ---
-" Ctl-t to open command-T
-map <C-T> :CommandT<CR>
-"Flush the command-t buffer with ,f
-map <Leader>f :CommandTFlush<CR>
-let g:CommandTMaxHeight=15          " set command-t window max height
-let g:CommandTAlwaysShowDotFiles=1  " show dotfiles in command-t
-let g:CommandTScanDotDirectories=1  " show files in dotdirectories in command-t
-let g:CommandTMaxFiles=100000       " increase file limit for command-t
-
 map <Leader>r :w<CR> :call <SID>RunSpec(0)<CR>
 map <Leader>R :w<CR> :call <SID>RunSpec(1)<CR>
 
@@ -197,8 +185,6 @@ function! RenameFile()
       " file is not in git, move it outside of git
       exec ':saveas ' . s:new_name
       exec ':silent !rm ' . s:old_name
-    finally
-      exec ':CommandTFlush'
     endtry
     redraw!
   endif

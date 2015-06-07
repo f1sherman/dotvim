@@ -15,16 +15,6 @@ mkdir ~/.vimtmp
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 # Install vundle (this may give an error about not finding the solarized theme - ignore it as this will install it)
 vim +BundleInstall +qall
-
-# Install command-t:
-cd ~/.vim/bundle/command-t/
-rake make
-
-# Install YouCompleteMe
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh
-
-# Install YouCompleteMe (autocompletion) - see 'super quick installation' notes here: https://github.com/Valloric/YouCompleteMe
 ```
 
 Update
