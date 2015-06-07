@@ -23,7 +23,10 @@ Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-expand-region'
 
 set background=dark
-colorscheme solarized          " make vim easy on the eyes
+
+if isdirectory($HOME . '/.vim/bundle/vim-colors-solarized')
+  colorscheme solarized          " make vim easy on the eyes
+endif
 
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
