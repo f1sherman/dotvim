@@ -14,7 +14,7 @@ mkdir ~/.vimtmp
 # Clone vundle:
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install vundle
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 ```
 
 Update
@@ -30,7 +30,7 @@ To add more plugins
 ===================
 ```shell
 # Add 'Bundle' line to vimrc as specified here: https://github.com/gmarik/vundle
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 add any additional/special instructions to this README
 commit changes
 ```
