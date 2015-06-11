@@ -100,9 +100,13 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " don't show generated files in listings
 set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|(spec|test)\/reports)$',
-  \ }
+if executable('ag')
+  let g:ctrlp_use_caching = 0
+
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
