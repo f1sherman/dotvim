@@ -100,6 +100,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " don't show generated files in listings
 set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
 
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20'
 if executable('ag')
   let g:ctrlp_use_caching = 0
 
