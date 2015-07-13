@@ -21,6 +21,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-expand-region'
+Bundle 'vim-ruby/vim-ruby'
 
 call vundle#end() 
 
