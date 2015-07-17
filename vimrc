@@ -22,6 +22,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end() 
 

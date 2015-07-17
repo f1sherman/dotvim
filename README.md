@@ -15,6 +15,10 @@ mkdir ~/.vimtmp
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install vundle
 vim +PluginInstall +qall
+
+# Install YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh
 ```
 
 Update
