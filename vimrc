@@ -104,9 +104,16 @@ set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
 
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20'
 if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " ag is fast enough that we don't need caching
   let g:ctrlp_use_caching = 0
 
-  set grepprg=ag\ --nogroup\ --nocolor
+  " remove file limit
+  let g:ctrlp_max_files = 0
+  
+  " fix slow update when holding the backspace key
+  let g:ctrlp_lazy_update = 10
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
