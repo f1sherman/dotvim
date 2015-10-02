@@ -156,6 +156,7 @@ set smartcase                     " ... unless they contain at least one capital
 " Don't clutter my dirs up with swp and tmp files
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
+set undodir=~/.vimtmp
 
 " Make underscore (_) a word delimiter
 set iskeyword-=_
