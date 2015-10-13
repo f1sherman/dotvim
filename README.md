@@ -18,7 +18,7 @@ vim +PluginInstall +qall
 
 # Install YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe
-./install.sh
+./install.py
 ```
 
 Update
