@@ -23,6 +23,7 @@ Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'DataWraith/auto_mkdir'
 
 call vundle#end() 
 
