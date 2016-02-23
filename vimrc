@@ -24,6 +24,7 @@ Bundle 'terryma/vim-expand-region'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'DataWraith/auto_mkdir'
+Bundle 'jiangmiao/auto-pairs'
 
 call vundle#end() 
 
