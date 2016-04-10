@@ -268,3 +268,19 @@ function! XTermPasteBegin()
 endfunction
  
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" https://gist.github.com/dahu/3344530
+function! MaximizeWithoutResizingQuickfix()
+  let qfwnr = get(get(filter(map(range(1,winnr('$')), '[v:val, getwinvar(v:val, "&buftype")]'), 'v:val[1] =~ "quickfix"'), 0, []), 0, -1)
+  let qfh = winheight(qfwnr)
+  wincmd _
+  if qfwnr != -1
+    exe qfwnr . "wincmd w"
+    exe "resize " . qfh
+    wincmd p
+  endif
+endfunction
+
+" prevent maximizing the current window from breaking the quickfix window
+" https://gist.github.com/dahu/3344530
+noremap <C-w>_ :call MaximizeWithoutResizingQuickfix()<cr>
