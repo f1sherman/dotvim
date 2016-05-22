@@ -106,6 +106,10 @@ nnoremap <leader>v V`]
 " use 'w!!' to save files as root
 cnoremap w!! %!sudo tee > /dev/null %
 
+" handle cases where I accidentally use uppercase :WQ
+cnoreabbrev W w
+cnoreabbrev Q q
+
 " use v and C-v to expand/shrink selection
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
