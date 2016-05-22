@@ -68,6 +68,9 @@ nnoremap <C-]> <C-w><C-]>
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 
+" Disable ex mode
+nnoremap Q <nop>
+
 " easier moving between windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
