@@ -97,6 +97,9 @@ map <leader>n :call RenameFile()<cr>
 " formatting)
 nnoremap <leader>v V`]
 
+" use 'w!!' to save files as root
+cnoremap w!! %!sudo tee > /dev/null %
+
 " use v and C-v to expand/shrink selection
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
