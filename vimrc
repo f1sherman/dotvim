@@ -196,6 +196,9 @@ let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["eruby", "haml", "sass", "scss"] }
 
+" Disable the 'not following' shellcheck error since there isn't much to do about it
+let g:syntastic_sh_shellcheck_args = '-e SC1091'
+
 map <Leader>r :w<CR> :call <SID>RunSpec(0)<CR>
 map <Leader>R :w<CR> :call <SID>RunSpec(1)<CR>
 
