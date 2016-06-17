@@ -11,14 +11,11 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 # Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
 
-# Clone vundle:
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# Install vundle
-vim +PluginInstall +qall
+# Start vim to install vim-plug and plugins
+vim
 
-# Install YouCompleteMe
-cd ~/.vim/bundle/YouCompleteMe
-./install.py
+# Quit vim and Install YouCompleteMe
+~/.vim/plugged/YouCompleteMe/install.py
 ```
 
 Update
@@ -26,15 +23,15 @@ Update
 ```shell
 git pull origin master
 
-# If any new plugins were added (can use PluginInstall! to also update existing plugins):
-vim +PluginInstall
+# If any new plugins were added:
+vim +PlugUpdate
 ```
 
 To add more plugins
 ===================
 ```shell
-# Add 'Bundle' line to vimrc as specified here: https://github.com/gmarik/vundle
-vim +PluginInstall +qall
+# Add 'Plug' line to vimrc (see existing vimrc for examples)
+vim +PlugUpdate +qall
 add any additional/special instructions to this README
 commit changes
 ```

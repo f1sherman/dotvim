@@ -1,36 +1,38 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" Bundles
-Plugin 'gmarik/Vundle.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kana/vim-textobj-user'
-Bundle 'pangloss/vim-javascript'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-dispatch'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'terryma/vim-expand-region'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'DataWraith/auto_mkdir'
-Bundle 'jiangmiao/auto-pairs'
-
-call vundle#end() 
+call plug#begin('~/.vim/plugged')
+" Plugins
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-dispatch'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-haml'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'vim-ruby/vim-ruby'
+Plug 'Valloric/YouCompleteMe'
+Plug 'DataWraith/auto_mkdir'
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
 
 set background=dark
 
-if isdirectory($HOME . '/.vim/bundle/vim-colors-solarized')
+if isdirectory($HOME . '/.vim/plugged/vim-colors-solarized')
   colorscheme solarized          " make vim easy on the eyes
 endif
 
