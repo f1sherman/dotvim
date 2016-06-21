@@ -57,9 +57,6 @@ au BufEnter *.rb syn match error contained "\<binding.pry\>"
 au BufEnter *.rb syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
 
-" Automatically reload vimrc when writing to it
-au BufWritePost .vimrc so $MYVIMRC
-
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
