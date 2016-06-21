@@ -302,6 +302,14 @@ function! MaximizeWithoutResizingQuickfix()
   endif
 endfunction
 
+" Jump to the enclosing Block (only works with properly 2-space indented files)
+function! JumpToEnclosingBlock()
+  let search_regex = '^' . repeat(' ', indent(line('.')) - 2) . '\w'
+  execute search(search_regex, 'b')
+endfunction
+
+noremap <leader>b :call JumpToEnclosingBlock()<cr>
+
 " prevent maximizing the current window from breaking the quickfix window
 " https://gist.github.com/dahu/3344530
 noremap <C-w>_ :call MaximizeWithoutResizingQuickfix()<cr>
