@@ -20,7 +20,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-haml'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-expand-region'
@@ -28,6 +27,8 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'Valloric/YouCompleteMe'
 Plug 'DataWraith/auto_mkdir'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set background=dark
@@ -69,6 +70,12 @@ nnoremap <silent> N Nzz
 
 " Disable ex mode
 nnoremap Q <nop>
+
+" use FZF to fuzzy-search files
+nnoremap <C-P> :Files<cr>
+
+" prevent YankRing from overwriting <C-P> mapping
+let g:yankring_replace_n_pkey = ''
 
 " easier moving between windows
 map <C-h> <C-w>h
@@ -115,22 +122,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " don't show generated files in listings
 set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
-
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20'
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " ag is fast enough that we don't need caching
-  let g:ctrlp_use_caching = 0
-
-  " remove file limit
-  let g:ctrlp_max_files = 0
-  
-  " fix slow update when holding the backspace key
-  let g:ctrlp_lazy_update = 10
-
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
