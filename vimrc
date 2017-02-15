@@ -91,7 +91,11 @@ noremap j gj
 map <C-F> :Ack<space>
 
 " Use ag (silver searcher) instead of ack for speed
-let g:ackprg = 'ag --nogroup --nocolor --column --skip-vcs-ignores'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --skip-vcs-ignores'
+endif
+
+let g:ack_use_dispatch = 1
 
 " ctrl-g to search for a ruby method definition
 map <C-G> :Ack<space>def\\s\(self\\.\)?
