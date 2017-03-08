@@ -296,6 +296,7 @@ endfunction
 " Jump to the enclosing Block (only works with properly 2-space indented files)
 function! JumpToEnclosingBlock()
   let search_regex = '^' . repeat(' ', indent(line('.')) - 2) . '\w'
+  execute "normal! m'"
   execute search(search_regex, 'b')
 endfunction
 
