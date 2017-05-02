@@ -185,6 +185,8 @@ set nostartofline
 " show a status line even if there's only one window
 set ls=2                        
 
+autocmd QuickFixCmdPost *grep* cwindow
+
 " Avoid hanging when saving some files
 let g:syntastic_mode_map = {
     \ "mode": "active",
