@@ -92,7 +92,7 @@ map <C-F> :Ack<space>
 
 " Use ag (silver searcher) instead of ack for speed
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep --skip-vcs-ignores'
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 let g:ack_use_dispatch = 1
