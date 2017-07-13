@@ -195,6 +195,9 @@ let g:syntastic_mode_map = {
 " Disable the 'not following' shellcheck error since there isn't much to do about it
 let g:syntastic_sh_shellcheck_args = '-e SC1091'
 
+" Check js files with eslint
+let g:syntastic_javascript_checkers=['eslint']
+
 noremap <Leader>r :w<CR>:call <SID>RunSpec(0)<CR>
 noremap <Leader>R :w<CR>:call <SID>RunSpec(1)<CR>
 
