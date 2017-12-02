@@ -6,7 +6,6 @@ git clone git@github.com:f1sherman/dotvim.git ~/.vim
 cd ~/.vim
 
 ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/gvimrc ~/.gvimrc
 
 # Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
