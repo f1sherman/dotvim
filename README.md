@@ -1,5 +1,7 @@
-Installation
-============
+# Brian's vim config
+
+## Installation
+
 ```shell
 git clone git@github.com:f1sherman/dotvim.git ~/.vim
 
@@ -17,8 +19,8 @@ vim
 ~/.vim/plugged/YouCompleteMe/install.py
 ```
 
-Update
-======
+## Update
+
 ```shell
 git pull origin master
 
@@ -26,8 +28,8 @@ git pull origin master
 vim +PlugUpdate
 ```
 
-To add more plugins
-===================
+## To add more plugins
+
 ```shell
 # Add 'Plug' line to vimrc (see existing vimrc for examples)
 vim +PlugUpdate +qall
