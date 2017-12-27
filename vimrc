@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-sleuth'
 Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 set background=dark
