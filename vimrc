@@ -29,6 +29,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 set background=dark
@@ -131,7 +132,7 @@ set nocompatible                  " choose no compatibility with legacy vi
 syntax enable
 set encoding=utf-8
 set showcmd                       " display incomplete commands
-filetype plugin indent on         " load file type plugins + indentation
+filetype plugin on                " load file type plugins + indentation
 set number                        " show line numbers
 set scrolloff=3                   " always show 3 lines above and below the cursor
 set cursorline                    " highlight the line the cursor is on
@@ -144,9 +145,7 @@ set splitbelow                    " Open new splits below instead of above
 "" Whitespace
 set wrap                          " wrap lines
 set linebreak                     " don't break words
-set tabstop=2 shiftwidth=2        " a tab is two spaces
 set softtabstop=2                 " backspace 2 spaces at a time
-set expandtab                     " use spaces, not tabs
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
 set textwidth=120                 " this, in addition to formatoptions=q, allows me 
