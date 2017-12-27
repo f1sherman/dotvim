@@ -13,7 +13,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
 Plug 'pangloss/vim-javascript'
@@ -29,6 +28,7 @@ Plug 'DataWraith/auto_mkdir'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 set background=dark
@@ -186,17 +186,6 @@ set nostartofline
 set ls=2                        
 
 autocmd QuickFixCmdPost *grep* cwindow
-
-" Avoid hanging when saving some files
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["eruby", "haml", "sass", "scss"] }
-
-" Disable the 'not following' shellcheck error since there isn't much to do about it
-let g:syntastic_sh_shellcheck_args = '-e SC1091'
-
-" Check js files with eslint
-let g:syntastic_javascript_checkers=['eslint']
 
 noremap <Leader>r :w<CR>:call <SID>RunSpec(0)<CR>
 noremap <Leader>R :w<CR>:call <SID>RunSpec(1)<CR>
