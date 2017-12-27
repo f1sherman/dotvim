@@ -30,6 +30,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-sleuth'
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 set background=dark
@@ -183,6 +184,9 @@ set nostartofline
 
 " show a status line even if there's only one window
 set ls=2                        
+
+" enable closetag
+let g:closetag_filenames = '*.html,*.html.erb,*.hbs'
 
 autocmd QuickFixCmdPost *grep* cwindow
 
