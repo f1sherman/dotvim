@@ -79,6 +79,9 @@ nnoremap Q <nop>
 " use FZF to fuzzy-search files
 nnoremap <C-P> :Files<cr>
 
+" use Shift-Q to close all splits
+nnoremap Q :qa<cr>
+
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
 
