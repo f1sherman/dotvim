@@ -196,6 +196,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 noremap <Leader>r :w<CR>:call <SID>RunSpec(0)<CR>
 noremap <Leader>R :w<CR>:call <SID>RunSpec(1)<CR>
 
+" Don't lint files when text changes
+let g:ale_lint_on_text_changed = 'never'
+
 function! RenameFile()
   let s:old_name = expand('%')
   let s:new_name = input('New file name: ', expand('%'), 'file')
