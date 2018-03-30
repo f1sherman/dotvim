@@ -146,6 +146,7 @@ set lazyredraw                    " fix scroll drift when holding down a move ke
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
 set wildmode=longest,list         " shell-style filename completion
 set splitbelow                    " Open new splits below instead of above
+set regexpengine=1                " Enable the old regexp engine, to speed up syntax highlighting in ruby files
 
 "" Whitespace
 set wrap                          " wrap lines
