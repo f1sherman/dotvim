@@ -141,7 +141,6 @@ set showcmd                       " display incomplete commands
 filetype plugin indent on         " load file type plugins + indentation
 set number                        " show line numbers
 set scrolloff=3                   " always show 3 lines above and below the cursor
-set cursorline                    " highlight the line the cursor is on
 set ruler                         " show row/column # at bottom right
 set lazyredraw                    " fix scroll drift when holding down a move key
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
