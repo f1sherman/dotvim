@@ -135,6 +135,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 set wildignore+=test/reports,spec/reports,tmp,.sass-cache,.DS_Store
 
 set nocompatible                  " choose no compatibility with legacy vi
+set backupcopy=no                 " avoid creating a '4913' file on every save
 syntax enable
 set encoding=utf-8
 set showcmd                       " display incomplete commands
