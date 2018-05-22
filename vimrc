@@ -33,6 +33,7 @@ Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tommcdo/vim-fubitive'
+Plug 'tpope/vim-rails'
 call plug#end()
 
 set background=dark
