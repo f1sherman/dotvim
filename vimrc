@@ -206,35 +206,35 @@ noremap <Leader>R :w<CR>:call <SID>RunSpec(1)<CR>
 let g:ale_lint_on_text_changed = 'never'
 
 function! RenameFile()
-  let s:old_name = expand('%')
-  let s:new_name = input('New file name: ', expand('%'), 'file')
-  if s:new_name != '' && s:new_name != s:old_name
+  let l:old_name = expand('%')
+  let l:new_name = input('New file name: ', expand('%'), 'file')
+  if l:new_name != '' && l:new_name != l:old_name
     " create the directory if it doesn't already exist
-    let s:dir = fnamemodify(s:new_name, ":p:h")
-    if !isdirectory(s:dir)
-      call mkdir(s:dir, "p")
+    let l:dir = fnamemodify(l:new_name, ":p:h")
+    if !isdirectory(l:dir)
+      call mkdir(l:dir, "p")
     endif
-    unlet s:dir
+    unlet l:dir
 
     try " first try to move with git so history is preserved properly
-      exec ':Gmove ' . s:new_name
+      exec ':Gmove ' . l:new_name
     catch E768
       " swap file exists, ignore and edit the moved file
-      exec ':edit ' . s:new_name
+      exec ':edit ' . l:new_name
     catch E492
       " file is not in git, move it outside of git
-      exec ':saveas ' . s:new_name
-      exec ':silent !rm ' . s:old_name
+      exec ':saveas ' . l:new_name
+      exec ':silent !rm ' . l:old_name
     catch /fugitive: fatal: not under version control/
       " file is not in git, move it outside of git
-      exec ':saveas ' . s:new_name
-      exec ':silent !rm ' . s:old_name
+      exec ':saveas ' . l:new_name
+      exec ':silent !rm ' . l:old_name
     endtry
     redraw!
   endif
 
-  unlet s:old_name
-  unlet s:new_name
+  unlet l:old_name
+  unlet l:new_name
 endfunction
 
 function! <SID>RunSpec(whole_file)
