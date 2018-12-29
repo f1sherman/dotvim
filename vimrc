@@ -50,7 +50,7 @@ let mapleader = ","               " use comma for leader
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Remove trailing whitespace on save
-autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.jst,*.markdown,*.md,*.rb,*.sass,*.scss,*.yaml,*.yml :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.json,*.jst,*.markdown,*.md,*.rb,*.sass,*.scss,*.yaml,*.yml :call <SID>StripTrailingWhitespaces()
 
 " Resize panes when vim is resized
 autocmd VimResized * :wincmd =
