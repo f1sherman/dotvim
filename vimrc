@@ -238,27 +238,27 @@ function! RenameFile()
 endfunction
 
 function! <SID>RunSpec(whole_file)
-  let s:source_path = expand('%')
+  let l:source_path = expand('%')
 
-  if empty(matchstr(s:source_path, '_spec.rb$'))
-    let s:spec_path = substitute(s:source_path, '\.rb$', '', '')
-    let s:spec_path = s:spec_path . '_spec.rb'
-    let s:spec_path = substitute(s:spec_path, 'app/', 'spec/', '')
-    if empty(matchstr(s:spec_path, 'spec/'))
-      let s:spec_path = "spec/" . s:spec_path
+  if empty(matchstr(l:source_path, '_spec.rb$'))
+    let l:spec_path = substitute(l:source_path, '\.rb$', '', '')
+    let l:spec_path = l:spec_path . '_spec.rb'
+    let l:spec_path = substitute(l:spec_path, 'app/', 'spec/', '')
+    if empty(matchstr(l:spec_path, 'spec/'))
+      let l:spec_path = "spec/" . l:spec_path
     endif
   else
     if a:whole_file
-      let s:spec_path = s:source_path
+      let l:spec_path = l:source_path
     else
-      let s:spec_path = s:source_path . ":" . line(".")
+      let l:spec_path = l:source_path . ":" . line(".")
     endif
   endif
 
-  execute('Dispatch rspec ' . s:spec_path)
+  execute('Dispatch rspec ' . l:spec_path)
 
-  unlet s:source_path
-  unlet s:spec_path
+  unlet l:source_path
+  unlet l:spec_path
 endfunction
 
 function! <SID>StripTrailingWhitespaces()
