@@ -239,6 +239,7 @@ endfunction
 
 function! <SID>RunSpec(whole_file)
   let l:source_path = expand('%')
+  let l:rspec_command = strlen($RSPEC_COMMAND) ? $RSPEC_COMMAND : 'rspec'
 
   if empty(matchstr(l:source_path, '_spec.rb$'))
     let l:spec_path = substitute(l:source_path, '\.rb$', '', '')
@@ -255,7 +256,9 @@ function! <SID>RunSpec(whole_file)
     endif
   endif
 
-  execute('Dispatch rspec ' . l:spec_path)
+  let l:command = 'Dispatch ' . l:rspec_command . ' ' . l:spec_path
+
+  execute(l:command)
 
   unlet l:source_path
   unlet l:spec_path
