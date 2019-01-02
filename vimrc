@@ -60,6 +60,7 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 " Highlight debugger statements
 au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.rb syn match error contained "\<binding.remote_pry\>"
 au BufEnter *.rb syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
 
