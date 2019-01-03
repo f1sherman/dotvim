@@ -34,6 +34,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tommcdo/vim-fubitive'
 Plug 'tpope/vim-rails'
+Plug 'jgdavey/vim-blockle'
 call plug#end()
 
 set background=dark
@@ -299,14 +300,14 @@ function! MaximizeWithoutResizingQuickfix()
   endif
 endfunction
 
-" Jump to the enclosing Block (only works with properly 2-space indented files)
-function! JumpToEnclosingBlock()
+" Jump up to the enclosing indent (only works with properly 2-space indented files)
+function! UpToEnclosingIndent()
   let search_regex = '^' . repeat(' ', indent(line('.')) - 2) . '\w'
   execute "normal! m'"
   execute search(search_regex, 'b')
 endfunction
 
-noremap <leader>b :call JumpToEnclosingBlock()<cr>
+noremap <leader>u :call UpToEnclosingIndent()<cr>
 
 " prevent maximizing the current window from breaking the quickfix window
 " https://gist.github.com/dahu/3344530
