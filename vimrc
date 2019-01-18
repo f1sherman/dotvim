@@ -87,6 +87,11 @@ nnoremap Q :qa<cr>
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
 
+" Don't jump to the next line when closing. This is annoying if e.g. we're
+" trying to close brackets on the current line and there's another bracket on
+" the next line
+let g:AutoPairsMultilineClose = 0
+
 " easier moving between windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
