@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-closetag'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'DataWraith/auto_mkdir'
 Plug 'jgdavey/vim-blockle'
@@ -51,8 +52,8 @@ let mapleader = ","               " use comma for leader
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-" Remove trailing whitespace on save
-autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.json,*.jst,*.markdown,*.md,*.rb,*.sass,*.scss,*.yaml,*.yml :call <SID>StripTrailingWhitespaces()
+" Autoformat all files on save (this also removes trailing whitespace)
+au BufWrite * :Autoformat
 
 " Resize panes when vim is resized
 autocmd VimResized * :wincmd =
@@ -270,13 +271,6 @@ function! <SID>RunSpec(whole_file)
 
   unlet l:source_path
   unlet l:spec_path
-endfunction
-
-function! <SID>StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  call cursor(l, c)
 endfunction
 
 " for tmux to automatically set paste and nopaste mode at the time pasting (as
