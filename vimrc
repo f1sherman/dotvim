@@ -1,6 +1,6 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
@@ -94,6 +94,9 @@ let g:yankring_replace_n_pkey = ''
 " the next line
 let g:AutoPairsMultilineClose = 0
 
+" Turn off vim-autoformat autoindent fallback
+let g:autoformat_autoindent = 0
+
 " easier moving between windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -167,18 +170,18 @@ set softtabstop=2                 " backspace 2 spaces at a time
 set expandtab                     " use spaces, not tabs
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
-set textwidth=120                 " this, in addition to formatoptions=q, allows me 
-                                  " to type gq to format comments
-set colorcolumn=115               " make it easier to see when my lines are getting 
-                                  " too long (github cuts off at about 115 chars on
-                                  " diffs)
+set textwidth=120                 " this, in addition to formatoptions=q, allows me
+" to type gq to format comments
+set colorcolumn=115               " make it easier to see when my lines are getting
+" too long (github cuts off at about 115 chars on
+" diffs)
 
 "" Searching
 set hlsearch                      " highlight matches
 set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
-set smartcase                     " ... unless they contain at least one capital 
-                                  " letter
+set smartcase                     " ... unless they contain at least one capital
+" letter
 
 " Don't clutter my dirs up with swp and tmp files
 set backupdir=~/.vimtmp
@@ -201,7 +204,7 @@ set nofoldenable
 set nostartofline
 
 " show a status line even if there's only one window
-set ls=2                        
+set ls=2
 
 " enable closetag
 let g:closetag_filenames = '*.html,*.html.erb,*.hbs'
@@ -276,7 +279,7 @@ endfunction
 " for tmux to automatically set paste and nopaste mode at the time pasting (as
 " happens in VIM UI)
 " Found here: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
- 
+
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
