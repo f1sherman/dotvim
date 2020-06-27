@@ -118,7 +118,7 @@ endif
 let g:ack_use_dispatch = 1
 
 " ctrl-g to search for a ruby method definition
-map <C-G> :Ack<space>def\\s\(self\\.\)?
+map <C-G> :Ack<space>def\\s\(self\\.\)\?
 
 " search for a ruby method definition in the current file
 map <Leader>m /def\s\(self\.\)\?
