@@ -52,9 +52,6 @@ let mapleader = ","               " use comma for leader
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-" Autoformat all files on save (this also removes trailing whitespace)
-au BufWrite * :Autoformat
-
 " Resize panes when vim is resized
 autocmd VimResized * :wincmd =
 
@@ -66,6 +63,14 @@ au BufEnter *.rb syn match error contained "\<binding.pry\>"
 au BufEnter *.rb syn match error contained "\<binding.remote_pry\>"
 au BufEnter *.rb syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
+
+" Autoformat all files on save (this also removes trailing whitespace)
+function! AutoFormatWithExceptions()
+  if @% != 'db/structure.sql'
+    :Autoformat
+  endif
+endfunction
+autocmd BufWrite * call AutoFormatWithExceptions()
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
