@@ -243,7 +243,7 @@ function! RenameFile()
       " file is not in git, move it outside of git
       exec ':saveas ' . l:new_name
       exec ':silent !rm ' . l:old_name
-    catch /fugitive: fatal: not under version control/
+    catch /fugitive/
       " file is not in git, move it outside of git
       exec ':saveas ' . l:new_name
       exec ':silent !rm ' . l:old_name
