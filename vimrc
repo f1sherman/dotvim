@@ -282,6 +282,13 @@ function! <SID>RunSpec(whole_file)
   unlet l:spec_path
 endfunction
 
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction
+
 " for tmux to automatically set paste and nopaste mode at the time pasting (as
 " happens in VIM UI)
 " Found here: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
