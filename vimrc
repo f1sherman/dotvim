@@ -120,6 +120,9 @@ endif
 
 let g:ack_use_dispatch = 1
 
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " ctrl-g to search for a ruby method definition
 map <C-G> :Ack<space>def\\s\(self\\.\)\?
 
