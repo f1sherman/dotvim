@@ -65,13 +65,16 @@ au BufEnter *.rb syn match error contained "\<binding.remote_pry\>"
 au BufEnter *.rb syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
 
+" Remove trailing whitespace on save
+autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.json,*.jst,*.markdown,*.md,*.sass,*.scss,*.yaml,*.yml :call <SID>StripTrailingWhitespaces()
+
 " Autoformat all files on save (this also removes trailing whitespace)
 function! AutoFormatWithExceptions()
   if @% != 'db/structure.sql'
     :Autoformat
   endif
 endfunction
-autocmd BufWrite * call AutoFormatWithExceptions()
+autocmd BufWrite *.rb call AutoFormatWithExceptions()
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
