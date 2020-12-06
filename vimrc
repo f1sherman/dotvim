@@ -106,12 +106,6 @@ let g:AutoPairsMultilineClose = 0
 " Turn off vim-autoformat autoindent fallback
 let g:autoformat_autoindent = 0
 
-" easier moving between windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 " move up/down on displayed lines rather than actual lines
 noremap k gk
 noremap j gj
