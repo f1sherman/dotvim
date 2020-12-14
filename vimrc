@@ -95,6 +95,9 @@ nnoremap <C-P> :Files<cr>
 " use Shift-Q to close all splits
 nnoremap Q :qa<cr>
 
+" Use Ctrl-D to forward delete in insert mode
+inoremap <C-d> <Del>
+
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
 
@@ -161,6 +164,7 @@ set showcmd                       " display incomplete commands
 filetype plugin indent on         " load file type plugins + indentation
 set number                        " show line numbers
 set scrolloff=3                   " always show 3 lines above and below the cursor
+set sidescrolloff=5               " always show 5 columns before and after the cursor
 set ruler                         " show row/column # at bottom right
 set lazyredraw                    " fix scroll drift when holding down a move key
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
@@ -177,17 +181,54 @@ set expandtab                     " use spaces, not tabs
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
 set textwidth=120                 " this, in addition to formatoptions=q, allows me
-" to type gq to format comments
+                                  " to type gq to format comments
 set colorcolumn=115               " make it easier to see when my lines are getting
-" too long (github cuts off at about 115 chars on
-" diffs)
+                                  " too long (github cuts off at about 115 chars on
+                                  " diffs)
+
+" Settings from https://github.com/tpope/vim-sensible
+set autoindent                    " copy indent from current line when starting new line
+set smarttab                      " tab behavior based on rest of the file
+set nrformats-=octal              " Don't consider numbers that start with a 0 as octal
+set laststatus=2                  " the last window will always have a status
+set wildmenu                      " enable enhanced command-line completion
+set display+=lastline             " show line contents instead of @ symbols when line 
+                                  " cannot be shown entirely on the screen
+" which characters to show in :list mode
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j " Delete comment character when joining commented lines
+endif
+" Ensure command line history is at least 1000
+if &history < 1000
+  set history=1000
+endif
+" Ensure at least 50 tab pages can be opened via -p or ":tab all"
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^Eterm'
+  set t_Co=16
+endif
+" Break undo when deleting lines and words in insert mode to prevent data loss 
+if empty(mapcheck('<C-U>', 'i'))
+  inoremap <C-U> <C-G>u<C-U>
+endif
+if empty(mapcheck('<C-W>', 'i'))
+  inoremap <C-W> <C-G>u<C-W>
+endif
+" Break undo on newline
+inoremap <CR> <C-G>u<CR>
 
 "" Searching
 set hlsearch                      " highlight matches
 set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital
-" letter
+                                  " letter
 
 " Don't clutter my dirs up with swp and tmp files
 set backupdir=~/.vimtmp
