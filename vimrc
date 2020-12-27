@@ -70,6 +70,12 @@ autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.json,*.jst,*.mar
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
+" Open window above
+nnoremap <C-a> :above new<cr>
+
+" Open window below
+nnoremap <C-s> :below new<cr>
+
 " open tag in horizontal split
 nnoremap <C-]> <C-w><C-]>
 
