@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-closetag'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'chaoren/vim-wordmotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'DataWraith/auto_mkdir'
@@ -231,9 +232,6 @@ set smartcase                     " ... unless they contain at least one capital
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set undodir=~/.vimtmp
-
-" Make underscore (_) a word delimiter
-set iskeyword-=_
 
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
