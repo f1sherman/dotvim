@@ -233,6 +233,9 @@ set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set undodir=~/.vimtmp
 
+let g:wordmotion_spaces = ['_', '-', '.']
+let g:wordmotion_uppercase_spaces = ['_', '-']
+
 " colorize parenthesis
 map <Leader>p :RainbowParenthesesToggle<CR>
 
