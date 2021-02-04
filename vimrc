@@ -66,7 +66,7 @@ au BufEnter *.rb syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
 
 " Remove trailing whitespace on save
-autocmd BufWritePre Dockerfile,*.css,*.haml,*.hbs,*.html,*.js,*.json,*.jst,*.markdown,*.md,*.sass,*.scss,*.yaml,*.yml :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
