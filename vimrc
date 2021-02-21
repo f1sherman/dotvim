@@ -116,7 +116,7 @@ map <C-F> :Ack<space>
 
 " Use rg (ripgrep) instead of ack for speed
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading'
+  let g:ackprg = 'rg --vimgrep --no-heading --hidden --no-vcs-ignores'
 endif
 
 let g:ack_use_dispatch = 1
@@ -190,7 +190,7 @@ set smarttab                      " tab behavior based on rest of the file
 set nrformats-=octal              " Don't consider numbers that start with a 0 as octal
 set laststatus=2                  " the last window will always have a status
 set wildmenu                      " enable enhanced command-line completion
-set display+=lastline             " show line contents instead of @ symbols when line 
+set display+=lastline             " show line contents instead of @ symbols when line
                                   " cannot be shown entirely on the screen
 " which characters to show in :list mode
 if &listchars ==# 'eol:$'
@@ -211,7 +211,7 @@ endif
 if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
 endif
-" Break undo when deleting lines and words in insert mode to prevent data loss 
+" Break undo when deleting lines and words in insert mode to prevent data loss
 if empty(mapcheck('<C-U>', 'i'))
   inoremap <C-U> <C-G>u<C-U>
 endif
