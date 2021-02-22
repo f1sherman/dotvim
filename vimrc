@@ -117,7 +117,7 @@ map <C-F> :Ack<space>''<Left>
 
 " Use rg (ripgrep) instead of ack for speed
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading --hidden --no-vcs-ignores'
+  let g:ackprg = 'rg --vimgrep --no-heading --hidden --no-ignore-vcs'
 endif
 
 let g:ack_use_dispatch = 1
