@@ -113,11 +113,11 @@ noremap k gk
 noremap j gj
 
 " ctrl-f to bring up Ack.vim
-map <C-F> :Ack<space>
+map <C-F> :Ack<space>''<Left>
 
 " Use rg (ripgrep) instead of ack for speed
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading'
+  let g:ackprg = 'rg --vimgrep --no-heading --hidden --no-vcs-ignores'
 endif
 
 let g:ack_use_dispatch = 1
