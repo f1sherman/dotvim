@@ -18,6 +18,7 @@ Plug 'jgdavey/vim-blockle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'kana/vim-textobj-user'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
