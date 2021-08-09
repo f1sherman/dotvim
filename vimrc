@@ -97,6 +97,9 @@ nnoremap Q :qa<cr>
 " Use Ctrl-D to forward delete in insert mode
 inoremap <C-d> <Del>
 
+" Quick save
+nnoremap <Leader>s :update<CR>
+
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
 
