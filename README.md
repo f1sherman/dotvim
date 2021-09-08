@@ -22,7 +22,7 @@ vim
 ## Update
 
 ```shell
-git pull origin master
+git pull origin main
 
 # If any new plugins were added:
 vim +PlugUpdate
