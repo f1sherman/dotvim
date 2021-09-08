@@ -98,7 +98,9 @@ nnoremap Q :qa<cr>
 inoremap <C-d> <Del>
 
 " Quick save
-nnoremap <Leader>s :update<CR>
+execute "set <M-s>=\es"
+inoremap <M-s> <Esc>:update<CR>a
+nnoremap <M-s> :update<CR>
 
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
