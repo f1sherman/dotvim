@@ -167,7 +167,6 @@ set encoding=utf-8
 set showcmd                       " display incomplete commands
 filetype plugin indent on         " load file type plugins + indentation
 set number                        " show line numbers
-set relativenumber                        " show line numbers
 set scrolloff=3                   " always show 3 lines above and below the cursor
 set sidescrolloff=5               " always show 5 columns before and after the cursor
 set ruler                         " show row/column # at bottom right
