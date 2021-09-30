@@ -72,11 +72,13 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
-" Open window above
-nnoremap <C-a> :above new<cr>
+" Open window above with Alt-a
+execute "set <M-a>=\ea"
+nnoremap <M-a> :above new<cr>
 
-" Open window below
-nnoremap <C-s> :below new<cr>
+" Open window below with Alt-s
+execute "set <M-s>=\es"
+nnoremap <M-s> :below new<cr>
 
 " open tag in horizontal split
 nnoremap <C-]> <C-w><C-]>
@@ -97,10 +99,9 @@ nnoremap Q :qa<cr>
 " Use Ctrl-D to forward delete in insert mode
 inoremap <C-d> <Del>
 
-" Quick save
-execute "set <M-s>=\es"
-inoremap <M-s> <Esc>:update<CR>a
-nnoremap <M-s> :update<CR>
+" Quick save with Ctrl-s
+inoremap <C-s> <Esc>:update<CR>
+nnoremap <C-s> :update<CR>
 
 " prevent YankRing from overwriting <C-P> mapping
 let g:yankring_replace_n_pkey = ''
