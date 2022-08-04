@@ -286,7 +286,7 @@ function! RenameFile()
     unlet l:dir
 
     try " first try to move with git so history is preserved properly
-      exec ':Gmove ' . l:new_name
+      exec ':GMove ' . l:new_name
     catch /E768/
       " swap file exists, ignore and edit the moved file
       exec ':edit ' . l:new_name
