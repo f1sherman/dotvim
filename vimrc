@@ -37,7 +37,9 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
-Plug 'Valloric/YouCompleteMe'
+if v:version > 801
+  Plug 'Valloric/YouCompleteMe'
+endif
 Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 call plug#end()
