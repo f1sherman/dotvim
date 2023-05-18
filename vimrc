@@ -76,11 +76,15 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 imap <C-l> <Space>=><Space>
 
 " Open window above with Alt-a
-execute "set <M-a>=\ea"
+if !has('nvim')
+  execute "set <M-a>=\ea"
+endif
 nnoremap <M-a> :above new<cr>
 
 " Open window below with Alt-s
-execute "set <M-s>=\es"
+if !has('nvim')
+  execute "set <M-s>=\es"
+endif
 nnoremap <M-s> :below new<cr>
 
 " open tag in horizontal split
