@@ -13,6 +13,9 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'DataWraith/auto_mkdir'
+if has('nvim')
+  Plug 'github/copilot.vim'
+end
 Plug 'haya14busa/is.vim'
 Plug 'jgdavey/vim-blockle'
 Plug 'jiangmiao/auto-pairs'
