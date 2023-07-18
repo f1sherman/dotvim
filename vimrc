@@ -37,7 +37,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
-if v:version > 801 && !g:copilot_enabled
+if v:version > 801 && exists('g:copilot_enabled') && !g:copilot_enabled
   Plug 'Valloric/YouCompleteMe'
 endif
 Plug 'vim-ruby/vim-ruby'
