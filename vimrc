@@ -178,6 +178,7 @@ set nocompatible                  " choose no compatibility with legacy vi
 set autoread                      " automatically detect and load file changes
 set backupcopy=no                 " avoid creating a '4913' file on every save
 syntax enable
+autocmd BufRead,BufNewFile *.ts set syntax= " Disable syntax highlighting for typescript files because it's slow
 set encoding=utf-8
 set showcmd                       " display incomplete commands
 filetype plugin indent on         " load file type plugins + indentation
