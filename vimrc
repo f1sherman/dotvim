@@ -26,7 +26,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', {'on': 'BufReadPost *.js'}
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
