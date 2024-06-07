@@ -6,7 +6,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Plugins
-Plug 'altercation/vim-colors-solarized'
+if has('nvim')
+  Plug 'maxmx03/solarized.nvim'
+else
+  Plug 'altercation/vim-colors-solarized'
+end
 Plug 'alvan/vim-closetag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chaoren/vim-wordmotion'
@@ -49,10 +53,15 @@ call plug#end()
 
 set background=dark
 
-if isdirectory($HOME . '/.vim/plugged/vim-colors-solarized')
-  colorscheme solarized          " make vim easy on the eyes
-endif
-
+if has('nvim')
+  if isdirectory($HOME . '/.vim/plugged/solarized.nvim')
+    colorscheme solarized          " make vim easy on the eyes
+  endif
+else
+  if isdirectory($HOME . '/.vim/plugged/vim-colors-solarized')
+    colorscheme solarized          " make vim easy on the eyes
+  endif
+end
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
 let mapleader = ","               " use comma for leader
