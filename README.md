@@ -12,10 +12,10 @@ ln -s ~/.vim/vimrc ~/.vimrc
 # Create a directory at ~/.vimtmp for temp files
 mkdir ~/.vimtmp
 
-# Start vim to install vim-plug and plugins
-vim
+# Start nvim to install vim-plug and plugins
+nvim
 
-# Quit vim and Install YouCompleteMe
+# Quit nvim and Install YouCompleteMe
 ~/.vim/plugged/YouCompleteMe/install.py
 ```
 
@@ -25,14 +25,14 @@ vim
 git pull origin main
 
 # If any new plugins were added:
-vim +PlugUpdate
+nvim +PlugUpdate
 ```
 
 ## To add more plugins
 
 ```shell
 # Add 'Plug' line to vimrc (see existing vimrc for examples)
-vim +PlugUpdate +qall
+nvim +PlugUpdate +qall
 add any additional/special instructions to this README
 commit changes
 ```
