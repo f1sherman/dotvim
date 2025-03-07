@@ -425,30 +425,27 @@ function! s:SortUniqQFList()
 endfunction
 autocmd! QuickfixCmdPost * call s:SortUniqQFList()
 
-" Send current file path to Aider pane
-function! SendToAider()
-  let file_path = expand("%:.")
-  " First get the list of panes and their commands
-  let pane_list = system("tmux list-panes -F '#{pane_id}:#{pane_current_command}'")
-  " Echo the pane list to help with debugging
-  echo "Available panes: " . pane_list
-  let aider_pane = system("tmux list-panes -F '#{pane_id}:#{pane_current_command}' | grep -i 'python\\|aider' | head -1 | cut -d: -f1")
-  if empty(aider_pane)
-    echoerr "No Aider pane found! Make sure Aider is running."
-    return
-  endif
-  let tmux_cmd = "tmux send-keys -t " . aider_pane . " \"/ask " . file_path . "\" Enter"
-  call system(tmux_cmd)
-endfunction
 
-function! SendToAider()
+" Direct tmux command mapping for Aider
+nnoremap <silent> <leader>k :silent call SendFileToAider()<CR>:echo ""<CR>
+
+function! SendFileToAider()
   " Get current file path
   let file_path = expand("%:.")
-
+  
+  " Get the current pane ID
+  let current_pane_cmd = "tmux display-message -p '#{pane_id}'"
+  let current_pane = substitute(system(current_pane_cmd), '\n', '', 'g')
+  
   " Find Aider pane
   let panes = split(system("tmux list-panes -F '#{pane_id}'"))
   let aider_pane = ""
   for pane_id in panes
+    " Skip the current pane
+    if pane_id == current_pane
+      continue
+    endif
+    
     let option_check = system("tmux show-options -p -t " . pane_id . " @is_aider 2>/dev/null")
     if option_check =~ "@is_aider 1"
       let aider_pane = pane_id
@@ -457,17 +454,14 @@ function! SendToAider()
   endfor
 
   if empty(aider_pane)
-    echoerr "No Aider pane found"
+    echo "No Aider pane found"
     return
   endif
 
-  " Send the file path to Aider
-  let cmd = "tmux send-keys -t " . aider_pane . " '/add " . file_path . "'"
-  let enter_cmd = "tmux send-keys -t " . aider_pane . " 'Enter'"
-  call system(cmd)
-  call system(enter_cmd)
-
-  echo "Sent '" . file_path . "' to Aider"
+  " Send commands to tmux
+  call system("tmux send-keys -t " . aider_pane . " '/add " . file_path . "'")
+  call system("tmux send-keys -t " . aider_pane . " Enter")
+  
+  echo "Sent '" . file_path . "' to Aider pane " . aider_pane
 endfunction
 
-nnoremap <leader>k :call SendToAider()<CR>
