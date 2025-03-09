@@ -112,6 +112,11 @@ nnoremap Q <nop>
 " use FZF to fuzzy-search files
 nnoremap <C-P> :Files<cr>
 
+" make FZF Files window bigger
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '90%,60%' }
+endif
+
 " use Shift-Q to close all splits
 nnoremap Q :qa<cr>
 
@@ -432,11 +437,11 @@ nnoremap <silent> <leader>k :silent call SendFileToAider()<CR>:echo ""<CR>
 function! SendFileToAider()
   " Get current file path
   let file_path = expand("%:.")
-  
+
   " Get the current pane ID
   let current_pane_cmd = "tmux display-message -p '#{pane_id}'"
   let current_pane = substitute(system(current_pane_cmd), '\n', '', 'g')
-  
+
   " Find Aider pane
   let panes = split(system("tmux list-panes -F '#{pane_id}'"))
   let aider_pane = ""
@@ -445,7 +450,7 @@ function! SendFileToAider()
     if pane_id == current_pane
       continue
     endif
-    
+
     let option_check = system("tmux show-options -p -t " . pane_id . " @is_aider 2>/dev/null")
     if option_check =~ "@is_aider 1"
       let aider_pane = pane_id
@@ -461,7 +466,7 @@ function! SendFileToAider()
   " Send commands to tmux
   call system("tmux send-keys -t " . aider_pane . " '/add " . file_path . "'")
   call system("tmux send-keys -t " . aider_pane . " Enter")
-  
+
   echo "Sent '" . file_path . "' to Aider pane " . aider_pane
 endfunction
 
