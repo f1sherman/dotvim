@@ -170,6 +170,9 @@ map <leader>n :call RenameFile()<cr>
 " copy current path to system clipboard
 map <leader>c :let @+ = expand("%")<cr>
 
+" copy relative path of current file to system clipboard
+map <leader>f :let @+ = expand("%:.")<cr>
+
 " select text that was just pasted (useful for performing commands such as
 " formatting)
 nnoremap <leader>v V`]
