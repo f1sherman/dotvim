@@ -48,7 +48,7 @@ if v:version > 801 && exists('g:copilot_enabled') && !g:copilot_enabled
   Plug 'Valloric/YouCompleteMe'
 endif
 Plug 'vim-ruby/vim-ruby'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 set background=dark
