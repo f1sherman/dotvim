@@ -301,6 +301,9 @@ noremap <Leader>R :w<CR>:call <SID>RunSpec(1)<CR>
 " Don't lint files when text changes
 let g:ale_lint_on_text_changed = 'never'
 
+" Disable linter because it gives me errors about missing client_id when opening JS files
+let g:ale_disable_lsp = 1
+
 function! RenameFile()
   let l:old_name = expand('%')
   let l:new_name = input('New file name: ', expand('%'), 'file')
