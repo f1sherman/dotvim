@@ -48,7 +48,7 @@ if v:version > 801 && exists('g:copilot_enabled') && !g:copilot_enabled
   Plug 'Valloric/YouCompleteMe'
 endif
 Plug 'vim-ruby/vim-ruby'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 call plug#end()
 
 set background=dark
@@ -303,6 +303,9 @@ let g:ale_lint_on_text_changed = 'never'
 
 " Disable linter because it gives me errors about missing client_id when opening JS files
 let g:ale_disable_lsp = 1
+
+" Disable ALE for now as it is creating false positive packwerk errors
+let b:ale_enabled = 0
 
 function! RenameFile()
   let l:old_name = expand('%')
