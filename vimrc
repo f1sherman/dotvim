@@ -27,10 +27,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kana/vim-textobj-user'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'pangloss/vim-javascript', {'on': 'BufReadPost *.js'}
+Plug 'pangloss/vim-javascript'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
@@ -83,6 +84,9 @@ au BufEnter *.js syn match error contained "\<debugger\>"
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Use old regexp engine for Ruby files for performance
+autocmd FileType ruby setlocal regexpengine=1
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
@@ -207,7 +211,6 @@ set lazyredraw                    " fix scroll drift when holding down a move ke
 set autoread                      " when a file changes outside of vim and hasn't been changed inside vim, reload it
 set wildmode=longest,list         " shell-style filename completion
 set splitbelow                    " Open new splits below instead of above
-set regexpengine=1                " Enable the old regexp engine, to speed up syntax highlighting in ruby files
 
 "" Whitespace
 set wrap                          " wrap lines
