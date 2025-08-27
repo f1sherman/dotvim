@@ -54,6 +54,9 @@ call plug#end()
 
 set background=dark
 
+"Turn off mouse integration because I don't want the cursor moving every time I click in the window
+set mouse=
+
 if has('nvim')
   if isdirectory($HOME . '/.vim/plugged/solarized.nvim')
     colorscheme solarized          " make vim easy on the eyes
