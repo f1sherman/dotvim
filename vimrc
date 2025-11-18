@@ -127,6 +127,9 @@ if exists('$TMUX')
   let g:fzf_layout = { 'tmux': '90%,60%' }
 endif
 
+" enable search history for FZF Files command
+let g:fzf_files_options = ['--history', expand('~/.config/fzf/history')]
+
 " use Shift-Q to close all splits
 nnoremap Q :qa<cr>
 
