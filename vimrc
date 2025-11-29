@@ -5,6 +5,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-obsession'
 " Plugins
 if has('nvim')
   Plug 'maxmx03/solarized.nvim'
@@ -491,3 +492,21 @@ function! SendFileToAider()
   echo "Sent '" . file_path . "' to Aider pane " . aider_pane
 endfunction
 
+" BEGIN ANSIBLE MANAGED BLOCK - OBSESSION
+function! GetSessionFile()
+  let l:session_dir = expand('~/.local/share/nvim/sessions')
+  let l:cwd = getcwd()
+  let l:session_name = substitute(l:cwd, '/', '%', 'g')
+  return l:session_dir . '/' . l:session_name . '.vim'
+endfunction
+
+autocmd VimEnter * nested
+  \ if !argc() && empty(v:this_session) |
+  \   let s:session_file = GetSessionFile() |
+  \   if filereadable(s:session_file) |
+  \     execute 'source ' . s:session_file |
+  \   else |
+  \     execute 'Obsession ' . s:session_file |
+  \   endif |
+  \ endif
+" END ANSIBLE MANAGED BLOCK - OBSESSION
