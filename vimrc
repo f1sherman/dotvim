@@ -492,11 +492,10 @@ function! SendFileToAider()
   echo "Sent '" . file_path . "' to Aider pane " . aider_pane
 endfunction
 
-" BEGIN ANSIBLE MANAGED BLOCK - OBSESSION
 function! GetSessionFile()
   let l:session_dir = expand('~/.local/share/nvim/sessions')
   let l:cwd = getcwd()
-  let l:session_name = substitute(l:cwd, '/', '%', 'g')
+  let l:session_name = substitute(l:cwd, '/', '-', 'g')
   return l:session_dir . '/' . l:session_name . '.vim'
 endfunction
 
@@ -509,4 +508,3 @@ autocmd VimEnter * nested
   \     execute 'Obsession ' . s:session_file |
   \   endif |
   \ endif
-" END ANSIBLE MANAGED BLOCK - OBSESSION
