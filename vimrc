@@ -59,9 +59,6 @@ set background=dark
 set mouse=
 
 if has('nvim')
-  if has('termguicolors')
-    set termguicolors
-  endif
   if isdirectory($HOME . '/.vim/plugged/solarized.nvim')
     colorscheme solarized          " make vim easy on the eyes
   endif
