@@ -59,6 +59,12 @@ set background=dark
 set mouse=
 
 if has('nvim')
+  " solarized.nvim requires termguicolors. Nvim 0.10+ auto-enables this, but
+  " Codespaces uses Ubuntu's apt nvim (0.9.x) which doesn't. Remove after
+  " Ubuntu apt provides nvim 0.10+.
+  if has('termguicolors')
+    set termguicolors
+  endif
   if isdirectory($HOME . '/.vim/plugged/solarized.nvim')
     colorscheme solarized          " make vim easy on the eyes
   endif
