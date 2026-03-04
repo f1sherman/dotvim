@@ -79,6 +79,7 @@ let mapleader = ","               " use comma for leader
 
 " Spellcheck and wrap git commit messages at recommended 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype markdown setlocal textwidth=0 formatoptions-=t
 
 " Resize panes when vim is resized
 autocmd VimResized * :wincmd =
