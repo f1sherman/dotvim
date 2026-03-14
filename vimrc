@@ -236,8 +236,7 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions=qrn1            " custom comment formatting, see :help fo-table
 set textwidth=120                 " this, in addition to formatoptions=q, allows me
                                   " to type gq to format comments
-set colorcolumn=115               " make it easier to see when my lines are getting
-                                  " too long (github cuts off at about 115 chars on
+set colorcolumn=                  " disable the color column
                                   " diffs)
 
 " Settings from https://github.com/tpope/vim-sensible
