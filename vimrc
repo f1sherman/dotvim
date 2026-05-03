@@ -18,9 +18,6 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'DataWraith/auto_mkdir'
-if has('nvim')
-  Plug 'github/copilot.vim'
-end
 Plug 'haya14busa/is.vim'
 Plug 'jgdavey/vim-blockle'
 Plug 'jiangmiao/auto-pairs'
@@ -46,9 +43,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
-if v:version > 801 && exists('g:copilot_enabled') && !g:copilot_enabled
-  Plug 'Valloric/YouCompleteMe'
-endif
 Plug 'vim-ruby/vim-ruby'
 "Plug 'dense-analysis/ale'
 call plug#end()

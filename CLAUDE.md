@@ -13,7 +13,6 @@ This is a personal Vim/Neovim configuration repository using vim-plug for plugin
 
 ### Core Plugins
 - **Solarized colorscheme**: Different versions for Vim vs Neovim
-- **GitHub Copilot**: Neovim only
 - **FZF**: File fuzzy finding with custom key bindings
 - **Ack.vim + ripgrep**: Fast text searching (ack.vim plugin with ripgrep backend)
 - **Tim Pope plugins**: Essential Vim utilities (fugitive, surround, rails, etc.)
