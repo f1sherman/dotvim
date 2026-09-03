@@ -1,3 +1,19 @@
+if has('nvim') && $HERDR_ENV ==# '1' && empty($TMUX)
+      \ && filereadable($VIMRUNTIME . '/lua/vim/ui/clipboard/osc52.lua')
+  " Send special-register copies through the Herdr pane to the local clipboard.
+  let g:clipboard = {
+        \ 'name': 'OSC 52',
+        \ 'copy': {
+        \   '+': luaeval("require('vim.ui.clipboard.osc52').copy('+')"),
+        \   '*': luaeval("require('vim.ui.clipboard.osc52').copy('*')"),
+        \ },
+        \ 'paste': {
+        \   '+': luaeval("require('vim.ui.clipboard.osc52').paste('+')"),
+        \   '*': luaeval("require('vim.ui.clipboard.osc52').paste('*')"),
+        \ },
+        \ }
+endif
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
