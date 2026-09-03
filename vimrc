@@ -1,3 +1,8 @@
+if has('nvim') && $HNP_HERDR_SSH ==# '1' && empty($TMUX)
+  " Send special-register copies through the Herdr pane to the local clipboard.
+  let g:clipboard = 'osc52'
+endif
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
