@@ -2,11 +2,12 @@
 set -euo pipefail
 
 repo_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+nvim_bin=${NVIM_BIN:-nvim}
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
 env -u HNP_HERDR_SSH HERDR_ENV=1 DISPLAY=:99 \
-  nvim --headless -u "$repo_dir/vimrc" \
+  "$nvim_bin" --headless -u "$repo_dir/vimrc" \
   "+redir! > $tmp_dir/provider" \
   '+silent echo provider#clipboard#Executable()' \
   '+redir END' \
@@ -22,7 +23,7 @@ fi
 marker='herdr-nvim-clipboard-probe'
 encoded=$(printf '%s' "$marker" | base64 -w0)
 env -u HNP_HERDR_SSH HERDR_ENV=1 TERM=xterm-256color script -qefc \
-  "nvim -u '$repo_dir/vimrc' -n \
+  "'$nvim_bin' -u '$repo_dir/vimrc' -n \
   '+call setreg(\"+\", \"$marker\")' '+qall!'" \
   "$tmp_dir/terminal" >/dev/null
 if ! LC_ALL=C grep -aF "]52;c;$encoded" "$tmp_dir/terminal" >/dev/null; then
@@ -31,7 +32,7 @@ if ! LC_ALL=C grep -aF "]52;c;$encoded" "$tmp_dir/terminal" >/dev/null; then
 fi
 
 env -u HNP_HERDR_SSH HERDR_ENV=1 TMUX=/tmp/tmux DISPLAY=:99 \
-  nvim --headless -u "$repo_dir/vimrc" \
+  "$nvim_bin" --headless -u "$repo_dir/vimrc" \
   "+redir! > $tmp_dir/tmux-provider" \
   '+silent echo provider#clipboard#Executable()' \
   '+redir END' \
