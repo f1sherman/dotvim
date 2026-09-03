@@ -1,4 +1,4 @@
-if has('nvim') && $HNP_HERDR_SSH ==# '1' && empty($TMUX)
+if has('nvim') && $HERDR_ENV ==# '1' && empty($TMUX)
   " Send special-register copies through the Herdr pane to the local clipboard.
   let g:clipboard = 'osc52'
 endif
