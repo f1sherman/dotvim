@@ -1,17 +1,28 @@
 if has('nvim') && $HERDR_ENV ==# '1' && empty($TMUX)
       \ && filereadable($VIMRUNTIME . '/lua/vim/ui/clipboard/osc52.lua')
-  " Send special-register copies through the Herdr pane to the local clipboard.
-  let g:clipboard = {
-        \ 'name': 'OSC 52',
-        \ 'copy': {
-        \   '+': luaeval("require('vim.ui.clipboard.osc52').copy('+')"),
-        \   '*': luaeval("require('vim.ui.clipboard.osc52').copy('*')"),
-        \ },
-        \ 'paste': {
-        \   '+': luaeval("require('vim.ui.clipboard.osc52').paste('+')"),
-        \   '*': luaeval("require('vim.ui.clipboard.osc52').paste('*')"),
-        \ },
-        \ }
+  " Herdr forwards clipboard writes but does not answer OSC 52 read requests.
+  " Keep local register values for previews and paste; use terminal paste for
+  " new text from the system clipboard.
+  lua << EOF
+  local osc52 = require('vim.ui.clipboard.osc52')
+  local function selection(reg)
+    local contents = { { '' }, 'v' }
+    local copy = osc52.copy(reg)
+    return function(lines, regtype)
+      copy(lines, regtype)
+      contents = { vim.deepcopy(lines), regtype }
+    end, function()
+      return vim.deepcopy(contents)
+    end
+  end
+  local copy_plus, paste_plus = selection('+')
+  local copy_star, paste_star = selection('*')
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = { ['+'] = copy_plus, ['*'] = copy_star },
+    paste = { ['+'] = paste_plus, ['*'] = paste_star },
+  }
+EOF
 endif
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
