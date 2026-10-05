@@ -25,15 +25,20 @@ encoded=$(printf '%s' "$marker" | base64 | tr -d '\r\n')
 if script --version 2>&1 | grep -q 'util-linux'; then
   env -u HNP_HERDR_SSH HERDR_ENV=1 TERM=xterm-256color script -qefc \
     "'$nvim_bin' -u '$repo_dir/vimrc' -n \
-    '+call setreg(\"+\", \"$marker\")' '+qall!'" \
+    '+call setreg(\"+\", \"$marker\")' '+silent registers + *' '+qall!'" \
     "$tmp_dir/terminal" >/dev/null
 else
   env -u HNP_HERDR_SSH HERDR_ENV=1 TERM=xterm-256color script -q \
     "$tmp_dir/terminal" "$nvim_bin" -u "$repo_dir/vimrc" -n \
-    "+call setreg(\"+\", \"$marker\")" '+qall!' >/dev/null
+    "+call setreg(\"+\", \"$marker\")" '+silent registers + *' '+qall!' >/dev/null
 fi
 if ! LC_ALL=C grep -aF "]52;c;$encoded" "$tmp_dir/terminal" >/dev/null; then
   printf 'FAIL: special-register copy did not emit the OSC 52 payload\n' >&2
+  exit 1
+fi
+
+if LC_ALL=C grep -aE ']52;[cp];\?' "$tmp_dir/terminal" >/dev/null; then
+  printf 'FAIL: register preview emitted an OSC 52 clipboard read request\n' >&2
   exit 1
 fi
 
@@ -49,5 +54,9 @@ if [[ "$tmux_provider" == "OSC 52" ]]; then
   printf 'FAIL: Herdr overrode nested tmux with OSC 52\n' >&2
   exit 1
 fi
+
+env -u HNP_HERDR_SSH -u TMUX HERDR_ENV=1 \
+  "$nvim_bin" --headless -u "$repo_dir/vimrc" \
+  "+luafile $repo_dir/tests/clipboard-registers.lua"
 
 printf 'PASS: Herdr uses OSC 52 and nested tmux keeps automatic selection\n'
